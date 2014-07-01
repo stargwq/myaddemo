@@ -1,0 +1,45 @@
+<fieldset>
+  <legend>广告</legend>
+
+
+  <p>
+    <b>标题:</b>
+    <%= @advertise.title %>
+  </p>
+
+  <p>
+    <b>图片:</b>
+    <%= image_tag @advertise.picture %>
+  </p>
+
+  <p>
+    <b>描述:</b>
+    <%= @advertise.description %>
+  </p>
+
+  <p>
+    <b>包名:</b>
+    <%= @advertise.package %>
+  </p>
+  <p>
+    <b>状态:</b>
+    <%= @advertise.adsite_status %>
+  </p>
+  <p>
+    <b>创建时间:</b>
+    <%= @advertise.time %>
+  </p>
+  <p>
+    <b>类型:</b>
+    <%= @advertise.adsite_type %>
+  </p>
+
+
+
+</fieldset>
+
+
+
+
+<%= link_to '编辑', edit_advertise_path(@advertise) %> |
+<%= link_to '返回', advertises_path %>

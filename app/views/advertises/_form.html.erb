@@ -1,0 +1,60 @@
+<%= form_for(@advertise, :html => {:mutipart => true}) do |f| %>
+    <table class="table">
+      <tr>
+        <td>标题</td>
+        <td><%=f.text_field :title %></td>
+      </tr>
+
+      <tr>
+        <td>图片</td>
+        <td><%= f.file_field :picture %></td>
+      </tr>
+
+      <tr>
+        <td>描述</td>
+        <td><%= f.text_field :description %></td>
+      </tr>
+
+      <tr>
+        <td>包名</td>
+        <td><%= f.text_field :package %></td>
+      </tr>
+
+      <tr>
+        <td>状态</td>
+        <td><%= f.select :state, Advertise::ADSTATE %></td>
+      </tr>
+
+      <tr>
+        <td>时间</td>
+        <% if action_name == "new" %>
+            <td><%= f.datetime_select :time %></td>
+        <% else %>
+            <td><%= f.datetime_select :parse_datetime %></td>
+        <% end %>
+      </tr>
+
+      <tr>
+        <td>类型</td>
+        <td><%= f.select :type,Advertise::ADTYPE %></td>
+      </tr>
+
+      <tr>
+
+        <% if action_name == "new"%>
+
+            <td colspan='2'>
+              <a href="/advertises" class="btn btn-success pull-right">返回列表</a>
+              &nbsp;
+              <%= f.submit("创建",:class => "btn btn-success pull-right", :style => "margin-right: 10px;")%>
+            </td>
+        <% else %>
+            <td colspan='2'>
+              <a href="/advertises" class="btn btn-success pull-right">返回列表</a>
+              &nbsp;
+              <%= f.submit("更新",:class => "btn btn-success pull-right", :style => "margin-right: 10px;")%>
+            </td>
+        <% end %>
+      </tr>
+    </table>
+<% end %>
